@@ -1,0 +1,32 @@
+<div class="wrapper"  >
+    <!-- [style.height.px]="myInnerHeight" -->
+  <!-- Sidebar Holder -->
+  
+  <nav id="sidebar" [ngClass]="status ? 'active' : ''">
+
+    <div class="filter-boxes">
+        <input type="text" class="form-control" placeholder="Filter..." (keyup)="filterValue($event)">
+        <span class="search"><i class="fa fa-search"></i></span>
+    </div>
+
+    <div class="scrollbar">
+        <ul class="list-unstyled components">
+          <li [ngClass]="item.isActive ? 'active' : ''" *ngFor="let item of _data; let i=index;"><!--active-->
+            <a class="pointer" (click)="onMenuItemClicked(i,item)">
+              <span class="sidebar-icon"><i [ngClass]="getIconClasses(item)"></i></span>
+              <span class="element" [ngClass]="status ? 'hide' : ''">{{item.itemName}}</span>
+            </a>
+          </li>
+        </ul>
+    </div>
+
+    <div class="bottom-logo-box">
+        <p class="logo-title">Brand Name</p>
+        <p class="logo-bottom-text">Your company name here</p>
+    </div>
+
+  </nav>
+  
+</div>
+
+
